@@ -6,7 +6,7 @@
 #    By: messafi <messafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/26 17:49:50 by messafi           #+#    #+#              #
-#    Updated: 2022/06/26 18:49:16 by messafi          ###   ########.fr        #
+#    Updated: 2022/06/27 22:52:41 by messafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ MLX_HEADER = /usr/locale/include
 
 all : $(NAME) $(LIBFT)
 
-$(NAME) : 
+$(NAME) : $(SRCS)
 	make -C libft
-	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) -o $@
+	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) $(LIBFT) $(FLAGS) -o $@
 
 clean :
 	make clean -C libft

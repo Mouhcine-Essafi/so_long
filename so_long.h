@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:03:35 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/26 18:29:56 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/27 16:37:51 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "mlx.h"
 # include "get_next_line.h"
+#include "libft/libft.h"
 # include <fcntl.h>
 # include <sys/types.h>
 # include <unistd.h>

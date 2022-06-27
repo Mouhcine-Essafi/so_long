@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajana <ajana@student.42.fr>                +#+  +:+       +#+        */
+/*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:31:08 by ajana             #+#    #+#             */
-/*   Updated: 2021/11/30 15:17:47 by ajana            ###   ########.fr       */
+/*   Updated: 2022/06/27 16:35:53 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_g(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -49,26 +49,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[j] = 0;
 	free((char *)s1);
 	return (str);
-}
-
-char	*ft_strchr(char *s, int c)
-{
-	int	i;
-	int	len;
-
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	if (c == '\0')
-		return (&s[len]);
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (&s[i]);
-		i++;
-	}
-	return (NULL);
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 04:29:26 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/26 13:01:07 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/27 16:37:01 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,4 @@ char	**ft_split(char const *s, char c)
 	strmagic[i] = 0;
 	return (strmagic);
 }
-#include<stdio.h>
-int main()
-{
-	int i = 0;
-	
-	char **s; 
-	s = ft_split("mmmm jjj j jj ", ' ');
-	while(s[i])
-	{
-		printf("%s\n", s[i]);
-		i++;
-	}
-}
+
