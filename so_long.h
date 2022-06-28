@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:03:35 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/27 16:37:51 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/28 16:18:15 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+
+typedef struct s_save
+{
+    void	*mlx;
+	void	*mlx_win;
+	char	*str;
+	int 	fd;
+	char	**map;
+}   t_save;
+
 
 
 
