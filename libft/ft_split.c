@@ -6,11 +6,12 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 04:29:26 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/27 16:37:01 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/29 15:38:31 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static	char	*strnew(int size)
 {
@@ -39,6 +40,8 @@ static int	wordcount(char const *str, char c)
 
 	i = 0;
 	timer = 0;
+	if (*str == c)
+		timer++;
 	while (str[i])
 	{
 		while (str[i] == c && str[i] != '\0')
@@ -48,6 +51,8 @@ static int	wordcount(char const *str, char c)
 		while (str[i] != c && str[i] != '\0')
 			i++;
 	}
+	if (str[i - 1] == c)
+		timer++;
 	return (timer);
 }
 
@@ -87,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	{
 		i3 = 0;
 		strmagic[i] = strnew(wordlen(&s[i2], c));
-		while (s[i2] == c)
+		while ((s[i2] == c && c != s[i2 + 1]))
 			i2++;
 		while (s[i2] != c && s[i2])
 			strmagic[i][i3++] = s[i2++];
@@ -96,4 +101,3 @@ char	**ft_split(char const *s, char c)
 	strmagic[i] = 0;
 	return (strmagic);
 }
-

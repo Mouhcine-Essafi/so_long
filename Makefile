@@ -6,13 +6,13 @@
 #    By: messafi <messafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/26 17:49:50 by messafi           #+#    #+#              #
-#    Updated: 2022/06/27 22:52:41 by messafi          ###   ########.fr        #
+#    Updated: 2022/06/29 17:22:26 by messafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRCS = so_long.c get_next_line.c get_next_line_utils.c
-LIBFT = libft/libft.a
+SRCS = so_long.c get_next_line.c get_next_line_utils.c so_long_u.c
+LIBFT = libft.a
 
 CC = gcc
 
@@ -23,11 +23,12 @@ MLX_FLAGS = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 MLX_HEADER = /usr/locale/include
 
 
-all : $(NAME) $(LIBFT)
+all : $(LIBFT) $(NAME)
+$(LIBFT) :
+	make -C libft
 
 $(NAME) : $(SRCS)
-	make -C libft
-	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) $(LIBFT) $(FLAGS) -o $@
+	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) libft/$(LIBFT) $(FLAGS) -o $@
 
 clean :
 	make clean -C libft

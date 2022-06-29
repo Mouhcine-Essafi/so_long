@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:03:35 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/28 16:18:15 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/29 19:39:06 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "mlx.h"
 # include "get_next_line.h"
-#include "libft/libft.h"
+# include "libft/libft.h"
 # include <fcntl.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -34,7 +34,9 @@ typedef struct s_save
 	char	**map;
 }   t_save;
 
-
-
+char	check_map(char **map);
+int		ft_strlen2(char **map);
+void	error(int a);
+int		ft_strlen2(char **map);
 
 #endif
