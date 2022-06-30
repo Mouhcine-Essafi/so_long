@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:03:35 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/29 19:39:06 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/30 20:16:00 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,21 @@
 
 typedef struct s_save
 {
-    void	*mlx;
+	void	*mlx;
 	void	*mlx_win;
 	char	*str;
-	int 	fd;
+	int		fd;
 	char	**map;
-}   t_save;
+	int		w;
+	int		h;
+}	t_save;
 
-char	check_map(char **map);
+int		check_map(char **map);
 int		ft_strlen2(char **map);
 void	error(int a);
 int		ft_strlen2(char **map);
+int		ft_handle_key(int key, t_save g);
+void	draw_map(char **map, t_save g);
+void	*read_map(char c, t_save g);
 
 #endif

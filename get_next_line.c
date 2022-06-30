@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:14:25 by ajana             #+#    #+#             */
-/*   Updated: 2022/06/27 16:34:57 by messafi          ###   ########.fr       */
+/*   Updated: 2022/06/30 20:07:08 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ char	*get_next_line(int fd)
 	}
 	free (buff);
 	line = get_line(save);
-	//save = rest(save);
 	return (line);
 }
