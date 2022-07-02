@@ -6,7 +6,7 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:31:36 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/30 20:53:58 by messafi          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:28:41 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,63 +28,65 @@ void	error(int a)
 {
 	if (a == 0)
 	{
-		write(1, "undifined argumets\n", 19);
+		write(2, "undifined argumets\n", 19);
 		exit(0);
 	}
 	if (a == 1)
 	{
-		write(1, "invalid map\n", 12);
+		write(2, "invalid map\n", 12);
 		exit(0);
 	}
 }
 
-int	check_map(char **map)
+int	ft_handle_key(int key, t_save *g)
+{
+	char	c;
+
+	c = 0;
+	if (key == 123 || key == 0)
+		c = 'A';
+	else if (key == 124 || key == 2)
+		c = 'D';
+	else if (key == 125 || key == 1)
+		c = 'S';
+	else if (key == 126 || key == 13)
+		c = 'W';
+	else if (key == 53)
+		exit(1);
+	ft_player_position(g, c);
+	return (0);
+}
+
+void	ft_player_position(t_save *g, char c)
 {
 	int	i;
-	int	j;
+	int j;
+	int s;
 
 	i = 0;
 	j = 0;
-	while (map[i] != '\0')
+	s = 0;
+	while (g->map[i] != '\0')
 	{
-		while ((map[i][j]) != '\0')
+		while (g->map[i][j] != '\0')
 		{
-			if (!(ft_strchr("01CEP", map[i][j])))
-				return (0);
-			if ((((map[0][j]) != '1') || (map[ft_strlen2(map) - 1][j]) != '1')
-				|| (((map[i][0]) != '1' )
-					|| ((map[i][ft_strlen(map[i]) - 1]) != '1')))
+			if (g->map[i][j] == 'P')
 			{
-				return (0);
+				if (c == 'D')
+					s = ft_right_side(g, i, j);
+				else if (c == 'A')
+					s = ft_left_side(g, i, j);
+				else if (c == 'S')
+					s = ft_down(g, i, j);
+				else if (c == 'W')
+					s = ft_up(g, i, j);
+				printf("%d\n", s);
+				return ;
 			}
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	return (1);
 }
 
-int	ft_handle_key(int key, t_save g)
-{
-	(void)g;
-	printf("%d\n", key);
-	return (key);
-}
-
-void	*read_map(char c, t_save g)
-{
-	void	*s;
-
-	if (c == '0')
-		s = mlx_xpm_file_to_image(g.mlx, "images/0.xpm", &g.h, &g.w);
-	if (c == '1')
-		s = mlx_xpm_file_to_image(g.mlx, "images/1.xpm", &g.h, &g.w);
-	if (c == 'C')
-		s = mlx_xpm_file_to_image(g.mlx, "images/C.xpm", &g.h, &g.w);
-	if (c == 'E')
-		s = mlx_xpm_file_to_image(g.mlx, "images/E.xpm", &g.h, &g.w);
-	if (c == 'P')
-		s = mlx_xpm_file_to_image(g.mlx, "images/P.xpm", &g.h, &g.w);
-	return (s);
-}

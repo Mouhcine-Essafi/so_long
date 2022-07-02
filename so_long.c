@@ -6,32 +6,11 @@
 /*   By: messafi <messafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:06:30 by messafi           #+#    #+#             */
-/*   Updated: 2022/06/30 20:53:46 by messafi          ###   ########.fr       */
+/*   Updated: 2022/07/02 17:03:02 by messafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	draw_map(char **map, t_save g)
-{
-	int		i;
-	int		j;
-	void	*s;
-
-	i = 0;
-	j = 0;
-	while (map[i] != '\0')
-	{
-		while (map[i][j] != '\0')
-		{
-			s = read_map(map[i][j], g);
-			mlx_put_image_to_window(g.mlx, g.mlx_win, s, j * 50, i * 50);
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-}
 
 int	main(int ac, char **av)
 {

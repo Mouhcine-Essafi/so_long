@@ -6,12 +6,14 @@
 #    By: messafi <messafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/26 17:49:50 by messafi           #+#    #+#              #
-#    Updated: 2022/06/29 17:22:26 by messafi          ###   ########.fr        #
+#    Updated: 2022/07/02 16:42:05 by messafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRCS = so_long.c get_next_line.c get_next_line_utils.c so_long_u.c
+SRCS = so_long.c get_next_line.c get_next_line_utils.c\
+		so_long_u.c so_long_map.c ft_move_player.c\
+				
 LIBFT = libft.a
 
 CC = gcc
@@ -28,7 +30,7 @@ $(LIBFT) :
 	make -C libft
 
 $(NAME) : $(SRCS)
-	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) libft/$(LIBFT) $(FLAGS) -o $@
+	$(CC) -I $(MLX_HEADER) $(MLX_FLAGS) $(SRCS) libft/$(LIBFT) $(FLAGS) -o $@ -fsanitize=address
 
 clean :
 	make clean -C libft
